@@ -1,0 +1,28 @@
+CREATE TABLE Person (
+    Last VARCHAR(255),
+    First VARCHAR(255),
+    Gender VARCHAR(6),
+    DoB DATE,
+);
+
+INSERT INTO Person (Last, First, Gender, DoB)
+VALUES 
+('Quinton', 'Nathan', 'Male', '2001-12-01'),
+('Power', 'Jenna', 'Female', '2003-09-12'),
+('Franco', 'James', 'Male', '1978-04-19'),
+('Dion', 'Celine', 'Female', '1968-03-30'),
+('Holland', 'Tom', 'Male', '1996-06-01');
+
+SELECT * FROM Person
+WHERE Gender='Male';
+
+SELECT * FROM Person
+WHERE DATE > '2000-01-01';
+
+UPDATE Person
+SET Last = 'Clark'
+WHERE Name = 'Nathan';
+
+UPDATE Person
+SET DoB = '2023-01-01'
+WHERE Gender = 'Male';
