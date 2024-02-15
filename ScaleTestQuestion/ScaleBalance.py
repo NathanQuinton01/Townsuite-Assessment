@@ -1,4 +1,4 @@
-
+# Select the largest number which makes the running total smaller than the goal
 def getGreedyPick(runningTotal, weights, goal):
     maxValue = 0
     selected = 0
@@ -11,7 +11,6 @@ def getGreedyPick(runningTotal, weights, goal):
 
 
 def main():
-    
     weights = input("Input list of weights as follows x,x,x,...\n").split(',')
     weights = [int(i) for i in weights]
     goal = int(input("Input a goal weight.\n"))
@@ -21,9 +20,9 @@ def main():
         solution = []
         runningTotal = item
         solution.append(item)
-        while(runningTotal < goal):
+        while(runningTotal < goal): # Keep greedily selecting weights until we hit the goal or over shoot it
             greed = getGreedyPick(runningTotal, weights, goal)
-            if (greed == 0):
+            if (greed == 0): # All of the greedily selectable options were invalid
                 break
             runningTotal += greed
             solution.append(greed)
