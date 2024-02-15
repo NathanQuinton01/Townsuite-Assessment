@@ -24,7 +24,6 @@ def main():
         while(runningTotal < goal):
             greed = getGreedyPick(runningTotal, weights, goal)
             if (greed == 0):
-                solution = []
                 break
             runningTotal += greed
             solution.append(greed)
