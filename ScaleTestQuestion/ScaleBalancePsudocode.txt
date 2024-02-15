@@ -1,0 +1,33 @@
+input weights
+input goal
+
+scaleBalance(weights, goal)
+    allSolutions = list
+    for item in weights
+        solution = list
+        runningcount = item
+        solution add item
+        while runningcount < goal
+            if (getGreedyPick(runningcount, weights, goal) = 0)
+                solution = empty list
+                break;
+            runningcount + getGreedyPick(runningcount, weights, goal)
+            solution add getGreedyPick(runningcount, weights, goal)
+        allSolutions add solution
+
+    return minLength(allSolutions)               <---- Output
+
+getGreedyPick(runningcount, weights, goal)
+    maxtotalsofar = 0
+    maxitem = 0
+    for item in weights:
+        temp = runningcount + item
+        if temp <= goal and > maxsofar
+            maxtotalsofar  = temp
+            maxitem = item
+    return maxitem
+
+
+This will go through each weight in the list greedily selecting weights by picking the largest available which does not overshoot the goal.
+This will not always produce the optimal solution. If the largest item in the set isnt necessarily optimal but would fall under the goal weight this can fail
+to find all solutions and thus potentially fail to find the optimal one. E.g The set 10,50,70,80,90 with goal 290 will find [10,90,90,90,10] instead of [50,70,80,90].
